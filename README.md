@@ -75,3 +75,9 @@ npm run dev:front
 
 - A correção da tipagem any no arquivo index.ts.
   * No front-end, arquivo `pages/index.ts`, linha 57, está com o eslint desabilitado para uma linha, pois o operador `this` não foi reconhecido, porém, o código está funcionando normalmente.
+
+ ### Layout 🎨
+Página com o resultado da pesquisa:
+ ![image](https://github.com/gabriellafaria/dogKennel/assets/93018901/a63651e0-144f-4226-b5f8-653f5c86f158)
+
+

@@ -1,0 +1,14 @@
+{
+  "name": "dti",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev:back": "cd backend && npm run start:dev",
+    "dev:front": "cd frontend && npm run dev",
+    "install": "cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -21,17 +21,17 @@ export function Index() {
   const [amountSmallDogs, setAmountSmallDogs] = useState<number>(0);
   const [amountBigDogs, setAmountBigDogs] = useState<number>(0);
 
-  async function sendForm({date, amountSmallDogs, amountBigDogs}: FormProps) {
+  async function sendForm({ date, amountSmallDogs, amountBigDogs }: FormProps) {
     const fetchBestChoiceURL = `http://localhost:3333/calculate?date=${date}&amountSmallDogs=${amountSmallDogs}&amountBigDogs=${amountBigDogs}`
     const res = await fetch(fetchBestChoiceURL)
     const data = await res.json();
-   
+
     return setResponse(data.bestChoice);
   }
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    sendForm({date, amountSmallDogs, amountBigDogs});
+    sendForm({ date, amountSmallDogs, amountBigDogs });
 
     handleReset();
   }
@@ -48,7 +48,7 @@ export function Index() {
   let anounceName;
 
   if (response?.name) {
-    anounce = 'A melhor escolha, conforme os parâmetros informados é:';
+    anounce = `A melhor escolha, para o dia ${dayjs(date).format('DD/MM/YYYY')}, com ${amountSmallDogs} cães pequenos e ${amountBigDogs} cães grandes é:`;
     anounceName = `PetShop ${response?.name}`;
     anouncePrice = `Valor total: R$ ${response?.price}`;
   }
@@ -72,13 +72,13 @@ export function Index() {
         <FormContainer>
           <Form onSubmit={handleSubmit}>
             <Input type="date" id="date" placeholder="Data para o banho" onChange={handleChange} />
-            <Input type="number" min='0' id="amountSmallDogs"  placeholder="Quantidade cães pequenos" onChange={handleChange} />
+            <Input type="number" min='0' id="amountSmallDogs" placeholder="Quantidade cães pequenos" onChange={handleChange} />
             <Input type="number" min='0' id="amountBigDogs" placeholder="Quantidade cães grandes" onChange={handleChange} />
 
             <Button type="submit">Enviar</Button>
           </Form>
         </FormContainer>
-  
+
         <BestChoice>
           <h1 id='res'>{anounce}</h1>
           <p id='res-name'>{anounceName}</p>
